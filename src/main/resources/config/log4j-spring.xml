@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration  scan="true" scanPeriod="60 seconds" debug="false">
+    <contextName>logback</contextName>
+    <property name="log.path" value="E:\\log\\log4j.log" />
+    <!--\u8F93\u51FA\u5230\u63A7\u5236\u53F0-->
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+       <!-- <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>-->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--\u8F93\u51FA\u5230\u6587\u4EF6-->
+    <appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
+        <file>${log.path}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log4j.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="console" />
+        <appender-ref ref="file" />
+    </root>
+
+    <!-- logback\u4E3Ajava\u4E2D\u7684\u5305 -->
+    <logger name="com.iflytek"/>
+    <!--logback.LogbackDemo\uFF1A\u7C7B\u7684\u5168\u8DEF\u5F84 -->
+    <!-- <logger name="com.dudu.controller.LearnController" level="WARN" additivity="false">
+        <appender-ref ref="console"/>
+    </logger> -->
+</configuration>

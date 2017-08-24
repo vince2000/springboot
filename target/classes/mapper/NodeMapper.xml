@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.iflytek.dao.NodeDao">
+ 	<!--目的：为Dao接口方法提供SQL语句-->
+    <!--映射实体对象-->
+    <resultMap id="nodeMapper" type="com.iflytek.bean.Node">
+        <id property="id" column="id" />
+        <result property="stepId" column="step_id" />
+        <result property="left" column="LEFT" />
+        <result property="top" column="TOP" />
+    </resultMap>
+
+    <select id="find" resultMap="nodeMapper">
+        SELECT * FROM TB_BUSINESS_FLOW_STEP_NODE WHERE id = #{0}
+    </select>
+    
+    <select id="findAll" resultMap="nodeMapper">
+        SELECT * FROM TB_BUSINESS_FLOW_STEP_NODE 
+    </select>
+
+	<delete id="delete">
+		delete from TB_BUSINESS_FLOW_STEP_NODE where id = #{0}
+	</delete>
+</mapper>
