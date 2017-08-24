@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.druid.support.logging.Log;
@@ -16,9 +17,13 @@ import com.alibaba.druid.support.logging.LogFactory;
 import com.github.pagehelper.PageHelper;
 import com.iflytek.bean.Node;
 import com.iflytek.service.NodeService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 @RestController
 @EnableAutoConfiguration
 @RequestMapping
+@Api(value="test",description="test Api")
 public class NodeController {
 
     @Autowired
@@ -27,7 +32,8 @@ public class NodeController {
     Log log = LogFactory.getLog(NodeController.class);
     
     @RequestMapping(value="add/findById",method=RequestMethod.POST)
-    public void find(Long id){
+    @ApiOperation(value="te",notes="st")
+    public void find(@RequestParam("id")Long id){
         log.info("方法的入参是："+id);
         Node n = nservice.find(id);
         System.out.println(n.toString());

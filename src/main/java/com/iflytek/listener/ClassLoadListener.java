@@ -12,7 +12,7 @@ public class ClassLoadListener implements ServletContextListener{
         // TODO Auto-generated method stub
         new TestMethod().test("123456");
     }
-
+    
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         // TODO Auto-generated method stub
