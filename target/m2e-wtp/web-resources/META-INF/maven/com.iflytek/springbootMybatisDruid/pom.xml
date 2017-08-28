@@ -15,6 +15,12 @@
 
 	<dependencies>
 
+		<!-- Spring Boot Elasticsearch 依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+		</dependency>
+
 		<!-- Spring Boot Reids 依赖 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -26,12 +32,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 			<!-- 移除嵌入式tomcat插件 -->
-			<exclusions>
+			<!-- <exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-tomcat</artifactId>
 				</exclusion>
-			</exclusions>
+			</exclusions> -->
 		</dependency>
 
 		<!-- http://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
@@ -101,10 +107,10 @@
 			<version>1.0.0</version> </dependency> -->
 
 		<!-- 使用jetty -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jetty</artifactId>
-		</dependency>
+		</dependency> -->
 
 	</dependencies>
 	<build>

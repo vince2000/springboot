@@ -32,6 +32,7 @@ public class NodeServiceImp implements NodeService{
     @Override
     public void delete(Long id) {
         // TODO Auto-generated method stub
+        redis.delete("testSpringbootRedis");
         ndao.delete(id);
     }
 
